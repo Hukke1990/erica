@@ -1,0 +1,26 @@
+{
+    "pacientes": [
+        {
+            "idPacientes": "PAC7175",
+            "nombre": "gaston",
+            "apellido": "bordet",
+            "cedula": "34784589",
+            "provincia": "entre rios",
+            "ciudad": "concepcion del uruguay",
+            "direccion": "artusi 187",
+            "telefono": "+540344215608040",
+            "correo": "gastonbordet@gmail.com"
+        },
+        {
+            "idPacientes": "PAC4196",
+            "nombre": "monica",
+            "apellido": "lezcano",
+            "cedula": "24294107",
+            "provincia": "entre rios",
+            "ciudad": "concepcion del uruguay",
+            "direccion": "artusi 187",
+            "telefono": "+540344215415470",
+            "correo": "monicalezcano79@gmail.com"
+        }
+    ]
+}

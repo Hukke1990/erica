@@ -1,0 +1,46 @@
+{
+    "usuarios": [
+        {
+            "id_usuario": "U0012",
+            "id_rol": "administrador",
+            "nombre_usuario": "admin",
+            "password": "1234",
+            "email": "gastonbordet@gmail.com"
+        },
+        {
+            "id_usuario": "U0017",
+            "id_rol": "usuario",
+            "nombre_usuario": "test",
+            "password": "1234",
+            "email": "test@gmail.com"
+        },
+        {
+            "id_usuario": "U0059",
+            "id_rol": "usuario",
+            "nombre_usuario": "leo",
+            "password": "1234",
+            "email": "leo@gmail.com"
+        },
+        {
+            "id_usuario": "U0044",
+            "id_rol": "usuario",
+            "nombre_usuario": "erica",
+            "password": "1234",
+            "email": "erica@gmail.com"
+        },
+        {
+            "id_usuario": "U0054",
+            "id_rol": "usuario",
+            "nombre_usuario": "gaston",
+            "password": "1234",
+            "email": "gb@gmail.com"
+        },
+        {
+            "id_usuario": "U0063",
+            "id_rol": "usuario",
+            "nombre_usuario": "monica",
+            "password": "1234",
+            "email": "mlz@gmail.com"
+        }
+    ]
+}
