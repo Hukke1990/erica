@@ -4,7 +4,7 @@
             "idPacientes": "PAC7175",
             "nombre": "gaston",
             "apellido": "bordet",
-            "cedula": "34784589",
+            "DNI": "34784589",
             "diagnostico": "Influenza",
             "comentarios": "Dolor de cabeza, mareos, dolores musculares",
             "fecha": "01/08/2024"
@@ -13,7 +13,7 @@
             "idPacientes": "PAC7175",
             "nombre": "gaston",
             "apellido": "bordet",
-            "cedula": "34784589",
+            "DNI": "34784589",
             "diagnostico": "Bronquitis",
             "comentarios": "Dolor de cabeza, mareos, dolores musculares",
             "fecha": "15/07/2024"
@@ -22,7 +22,7 @@
             "idPacientes": "PAC4196",
             "nombre": "monica",
             "apellido": "lezcano",
-            "cedula": "24294107",
+            "DNI": "24294107",
             "diagnostico": "Gripe",
             "comentarios": "Dolor de cabeza, mareos, dolores musculares",
             "fecha": "10/06/2024"
@@ -31,7 +31,7 @@
             "idPacientes": "PAC4196",
             "nombre": "monica",
             "apellido": "lezcano",
-            "cedula": "24294107",
+            "DNI": "24294107",
             "diagnostico": "Hipertension",
             "comentarios": "Dolor de cabeza, mareos, dolores musculares",
             "fecha": "20/05/2024"
@@ -40,7 +40,7 @@
             "idPacientes": "PAC4196",
             "nombre": "monica",
             "apellido": "lezcano",
-            "cedula": "24294107",
+            "DNI": "24294107",
             "diagnostico": "Alergia estacional",
             "comentarios": "Dolor de cabeza, mareos, dolores musculares",
             "fecha": "05/04/2024"
@@ -50,7 +50,7 @@
             "idPacientes": "PAC7175",
             "nombre": "gaston",
             "apellido": "bordet",
-            "cedula": "34784589",
+            "DNI": "34784589",
             "diagnostico": "Estres",
             "comentarios": "Dolor de cabeza, mareos, dolores musculares",
             "fecha": "03/08/2024"

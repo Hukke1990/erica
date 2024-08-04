@@ -22,7 +22,7 @@ class Diagnosticos:
         print(f'Nombre: {pacienteSeleccionado.obtenerNombre().capitalize()}')
         print(
             f'Apellido: {pacienteSeleccionado.obtenerApellido().capitalize()}')
-        print(f'Cédula: {pacienteSeleccionado.obtenerCedula()}')
+        print(f'Cédula: {pacienteSeleccionado.obtenerDNI()}')
 
         diagnostico = input("Ingrese el diagnóstico del paciente: ")
         comentarios = input('Comentarios (opcional): ') or None
@@ -33,7 +33,7 @@ class Diagnosticos:
             "idPacientes": pacienteSeleccionado.obtenerIdPacientes(),
             "nombre": pacienteSeleccionado.obtenerNombre(),
             "apellido": pacienteSeleccionado.obtenerApellido(),
-            "cedula": pacienteSeleccionado.obtenerCedula(),
+            "DNI": pacienteSeleccionado.obtenerDNI(),
             "diagnostico": diagnostico,
             "comentarios": comentarios,
             "fecha": fecha

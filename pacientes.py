@@ -8,15 +8,17 @@ from difflib import get_close_matches
 import tester
 
 # AGREGAR OBRA SOCIAL
+# AGREGAR FECHA NACIMIENTO
 
 
 class Pacientes:
 
-    def __init__(self, idPacientes, nombre, apellido, cedula, provincia, ciudad, direccion, telefono, correo):
+    def __init__(self, idPacientes, nombre, apellido, DNI, obraSocial, provincia, ciudad, direccion, telefono, correo):
         self.__idPacientes = idPacientes
         self.__nombre = nombre
         self.__apellido = apellido
-        self.__cedula = cedula
+        self.__DNI = DNI
+        self.__obraSocial = obraSocial
         self.__provincia = provincia
         self.__ciudad = ciudad
         self.__direccion = direccion
@@ -34,8 +36,11 @@ class Pacientes:
     def establecerApellido(self, apellido):
         self.__apellido = apellido
 
-    def establecerCedula(self, cedula):
-        self.__cedula = cedula
+    def establecerDNI(self, DNI):
+        self.__DNI = DNI
+
+    def establecerObraSocial(self, obraSocial):
+        self.__obraSocial = obraSocial
 
     def establecerProvincia(self, provincia):
         self.__provincia = provincia
@@ -65,18 +70,19 @@ class Pacientes:
         except EmailNotValidError:
             return False
 
-    def agregarPacienteCompleto(self, nombre, apellido, cedula, provincia, ciudad, direccion, telefono, correo):
+    def agregarPacienteCompleto(self, nombre, apellido, DNI, obraSocial, provincia, ciudad, direccion, telefono, correo):
         dataPacientes = {'pacientes': []}
 
         if os.path.exists('pacientes.json') and os.path.getsize('pacientes.json') > 0:
             dataPacientes = Pacientes.cargarJson()
 
-        if not nombre or not apellido or not cedula or not provincia or not ciudad or not direccion or not telefono or not correo:
+        if not nombre or not apellido or not DNI or not obraSocial or not provincia or not ciudad or not direccion or not telefono or not correo:
             return False
 
         pacienteExiste = any(p["nombre"] == nombre.lower() and
                              p["apellido"] == apellido.lower() and
-                             p["cedula"] == cedula.lower() and
+                             p["DNI"] == DNI.lower() and
+                             p["obraSocial"] == obraSocial.lower() and
                              p["provincia"] == provincia.lower() and
                              p["ciudad"] == ciudad.lower() and
                              p["direccion"] == direccion.lower() and
@@ -89,7 +95,8 @@ class Pacientes:
         dataPacientes["pacientes"].append({"idPacientes": self.obtenerIdPacientes(),
                                            "nombre": nombre.lower(),
                                            "apellido": apellido.lower(),
-                                           "cedula": cedula.lower(),
+                                           "DNI": DNI.lower(),
+                                           "obraSocial": obraSocial.lower(),
                                            "provincia": provincia.lower(),
                                            "ciudad": ciudad.lower(),
                                            "direccion": direccion.lower(),
@@ -130,7 +137,7 @@ class Pacientes:
         print(f'{Fore.CYAN}PACIENTES ENCONTRADOS: {Fore.RESET}')
         for idx, paciente in enumerate(pacientesEncontrados, start=1):
             print(
-                f'{Fore.GREEN}{idx}. Nombre completo:{Fore.RESET} {paciente["apellido"].capitalize()} {paciente["nombre"].capitalize()} - {Fore.GREEN}Cedula:{Fore.RESET} {paciente["cedula"]}')
+                f'{Fore.GREEN}{idx}. Nombre completo:{Fore.RESET} {paciente["apellido"].capitalize()} {paciente["nombre"].capitalize()} - {Fore.GREEN}DNI:{Fore.RESET} {paciente["DNI"]}')
 
         while True:
             try:
@@ -141,7 +148,8 @@ class Pacientes:
                     paciente = Pacientes(pacientesSeleccionado["idPacientes"],
                                          pacientesSeleccionado["nombre"],
                                          pacientesSeleccionado["apellido"],
-                                         pacientesSeleccionado["cedula"],
+                                         pacientesSeleccionado["DNI"],
+                                         pacientesSeleccionado["obraSocial"],
                                          pacientesSeleccionado["provincia"],
                                          pacientesSeleccionado["ciudad"],
                                          pacientesSeleccionado["direccion"],
@@ -189,8 +197,11 @@ class Pacientes:
     def obtenerApellido(self):
         return self.__apellido
 
-    def obtenerCedula(self):
-        return self.__cedula
+    def obtenerDNI(self):
+        return self.__DNI
+
+    def obtenerObraSocial(self):
+        return self.__obraSocial
 
     def obtenerProvincia(self):
         return self.__provincia
@@ -216,7 +227,8 @@ class Pacientes:
             paciente = Pacientes(paciente["idPacientes"],
                                  paciente["nombre"],
                                  paciente["apellido"],
-                                 paciente["cedula"],
+                                 paciente["DNI"],
+                                 paciente["obraSocial"],
                                  paciente["provincia"],
                                  paciente["ciudad"],
                                  paciente["direccion"],
@@ -231,7 +243,8 @@ class Pacientes:
         ID: {self.obtenerIdPacientes()}
         Nombre: {self.obtenerNombre()}
         Apellido: {self.obtenerApellido()}
-        Cedula: {self.obtenerCedula()}
+        DNI: {self.obtenerDNI()}
+        Obra Social: {self.obtenerObraSocial()}
         Provincia: {self.obtenerProvincia()}
         Ciudad: {self.obtenerCiudad()}
         Direccion: {self.obtenerDireccion()}
@@ -256,7 +269,8 @@ class Pacientes:
             'idPacientes': self.obtenerIdPacientes(),
             'nombre': self.obtenerNombre(),
             'apellido': self.obtenerApellido(),
-            'cedula': self.obtenerCedula(),
+            'DNI': self.obtenerDNI(),
+            'obraSocial': self.obtenerObraSocial(),
             'provincia': self.obtenerProvincia(),
             'ciudad': self.obtenerCiudad(),
             'direccion': self.obtenerDireccion(),

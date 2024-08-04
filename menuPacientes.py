@@ -17,14 +17,17 @@ class MenuPacientes:
         global pacientes
         tester.limpiarPantalla()
         print(f"{Fore.CYAN}MENU PACIENTES{Fore.RESET}")
-        pacientes = pacientes.Pacientes(None, '', '', '', '', '', '', '', '')
+        pacientes = pacientes.Pacientes(
+            None, '', '', '', '', '', '', '', '', '')
         pacientes.establecerIdPacientes()
         nombre = input(f'{Fore.GREEN}Nombre: {Fore.RESET}')
         pacientes.establecerNombre(nombre)
         apellido = input(f'{Fore.GREEN}Apellido: {Fore.RESET}')
         pacientes.establecerApellido(apellido)
-        cedula = input(f'{Fore.GREEN}Cedula: {Fore.RESET}')
-        pacientes.establecerCedula(cedula)
+        DNI = input(f'{Fore.GREEN}DNI: {Fore.RESET}')
+        pacientes.establecerDNI(DNI)
+        obraSocial = input(f'{Fore.GREEN}Obra Social: {Fore.RESET}')
+        pacientes.establecerObraSocial(obraSocial)
         provincia = input(f'{Fore.GREEN}Provincia: {Fore.RESET}')
         pacientes.establecerProvincia(provincia)
         ciudad = input(f'{Fore.GREEN}Ciudad: {Fore.RESET}')
@@ -42,7 +45,8 @@ class MenuPacientes:
                         if opcion == 's':
                             pacientes.agregarPacienteCompleto(pacientes.obtenerNombre(),
                                                               pacientes.obtenerApellido(),
-                                                              pacientes.obtenerCedula(),
+                                                              pacientes.obtenerDNI(),
+                                                              pacientes.obtenerObraSocial(),
                                                               pacientes.obtenerProvincia(),
                                                               pacientes.obtenerCiudad(),
                                                               pacientes.obtenerDireccion(),
@@ -88,10 +92,10 @@ class MenuPacientes:
         print('{:->35}'.format(''))  # agrega 35 lineas
 
         for p in pacientesBuscar:
-            atributos = ["ID", "Nombre", "Apellido", "Cedula",
+            atributos = ["ID", "Nombre", "Apellido", "DNI", "Obra Social",
                          "Provincia", "Ciudad", "Direccion", "Telefono", "Correo"]
 
-        metodos = [p.obtenerIdPacientes, p.obtenerNombre, p.obtenerApellido, p.obtenerCedula,
+        metodos = [p.obtenerIdPacientes, p.obtenerNombre, p.obtenerApellido, p.obtenerDNI,
                    p.obtenerProvincia, p.obtenerCiudad, p.obtenerDireccion, p.obtenerTelefono, p.obtenerCorreo]
 
         for atributo, metodo in zip(atributos, metodos):
@@ -121,10 +125,10 @@ class MenuPacientes:
             print('{:->35}'.format(''))  # agrega 35 lineas
 
             for p in pacientesBuscar:
-                atributos = ["ID", "Nombre", "Apellido", "Cedula",
+                atributos = ["ID", "Nombre", "Apellido", "DNI", "Obra Social",
                              "Provincia", "Ciudad", "Direccion", "Telefono", "Correo"]
 
-            metodos = [p.obtenerIdPacientes, p.obtenerNombre, p.obtenerApellido, p.obtenerCedula,
+            metodos = [p.obtenerIdPacientes, p.obtenerNombre, p.obtenerApellido, p.obtenerDNI, p.obtenerObraSocial,
                        p.obtenerProvincia, p.obtenerCiudad, p.obtenerDireccion, p.obtenerTelefono, p.obtenerCorreo]
 
             for atributo, metodo in zip(atributos, metodos):
@@ -137,15 +141,16 @@ class MenuPacientes:
             opcionEdicion = {
                 1: 'Editar Nombre',
                 2: 'Editar Apellido',
-                3: 'Editar Cedula',
-                4: 'Editar Provincia',
-                5: 'Editar Ciudad',
-                6: 'Editar Direccion',
-                7: 'Editar Telefono',
-                8: 'Editar Correo',
-                9: 'Guardar Cambios',
-                10: 'Borrar Paciente',
-                11: 'Volver al menu principal'
+                3: 'Editar DNI',
+                4: 'Editar Obra Social',
+                5: 'Editar Provincia',
+                6: 'Editar Ciudad',
+                7: 'Editar Direccion',
+                8: 'Editar Telefono',
+                9: 'Editar Correo',
+                10: 'Guardar Cambios',
+                11: 'Borrar Paciente',
+                12: 'Volver al menu principal'
             }
 
             for opcion, mensaje in opcionEdicion.items():
@@ -178,15 +183,24 @@ class MenuPacientes:
                     camposModificados.append('Apellido')
 
             elif opcion == 3:
-                nuevoCedula = input(
-                    f'Nueva cedula, "c" para cancelar: ').lower()
-                if nuevoCedula == 'c':
+                nuevoDNI = input(
+                    f'Nueva DNI, "c" para cancelar: ').lower()
+                if nuevoDNI == 'c':
                     continue
                 else:
-                    p.establecerCedula(nuevoCedula)
-                    camposModificados.append('Cedula')
+                    p.establecerDNI(nuevoDNI)
+                    camposModificados.append('DNI')
 
             elif opcion == 4:
+                nuevaObraSocial = input(
+                    f'Nueva obra social, "c" para cancelar: ').lower()
+                if nuevaObraSocial == 'c':
+                    continue
+                else:
+                    p.establecerObraSocial(nuevaObraSocial)
+                    camposModificados.append('Obra Social')
+
+            elif opcion == 5:
                 nuevaProvincia = input(
                     f'Nueva provincia, "c" para cancelar: ').lower()
                 if nuevaProvincia == 'c':
@@ -195,7 +209,7 @@ class MenuPacientes:
                     p.establecerProvincia(nuevaProvincia)
                     camposModificados.append('Provincia')
 
-            elif opcion == 5:
+            elif opcion == 6:
                 nuevaCiudad = input(
                     f'Nueva ciudad, "c" para cancelar: ').lower()
                 if nuevaCiudad == 'c':
@@ -204,7 +218,7 @@ class MenuPacientes:
                     p.establecerCiudad(nuevaCiudad)
                     camposModificados.append('Ciudad')
 
-            elif opcion == 6:
+            elif opcion == 7:
                 nuevaDireccion = input(
                     f'Nueva direccion, "c" para cancelar: ').lower()
                 if nuevaDireccion == 'c':
@@ -213,7 +227,7 @@ class MenuPacientes:
                     p.establecerDireccion(nuevaDireccion)
                     camposModificados.append('Direccion')
 
-            elif opcion == 7:
+            elif opcion == 8:
                 nuevoTelefono = input(
                     f'Nuevo telefono, "c" para cancelar: ').lower()
                 if nuevoTelefono == 'c':
@@ -222,7 +236,7 @@ class MenuPacientes:
                     p.establecerTelefono(nuevoTelefono)
                     camposModificados.append('Telefono')
 
-            elif opcion == 8:
+            elif opcion == 9:
                 nuevoCorreo = input(
                     f'Nuevo correo, "c" para cancelar: ').lower()
                 if nuevoCorreo == 'c':
@@ -231,17 +245,17 @@ class MenuPacientes:
                     p.establecerCorreo(nuevoCorreo)
                     camposModificados.append('Correo')
 
-            elif opcion == 9:
+            elif opcion == 10:
                 pacientes.Pacientes.editarPacientes(p)
                 print(
                     f'\n{Fore.GREEN}Paciente actualizado con exito!{Fore.RESET}')
                 input(f'Precione una tecla para continuar')
 
-            elif opcion == 10:
+            elif opcion == 11:
                 pacientes.Pacientes.eliminarPacientes(p)
                 print(
                     f'\n{Fore.GREEN}Paciente eliminado con exito!{Fore.RESET}')
                 int(f'Precione una tecla para continuar')
 
-            elif opcion == 11:
+            elif opcion == 12:
                 break
