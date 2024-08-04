@@ -21,6 +21,17 @@
             "direccion": "artusi 187",
             "telefono": "+540344215415470",
             "correo": "monicalezcano79@gmail.com"
+        },
+        {
+            "idPacientes": "PAC4301",
+            "nombre": "valentina",
+            "apellido": "lezcano",
+            "cedula": "12547896",
+            "provincia": "entre rios",
+            "ciudad": "concepcion del uruguay",
+            "direccion": "artusi 123",
+            "telefono": "+540344215608040",
+            "correo": "vl@gmail.com"
         }
     ]
 }

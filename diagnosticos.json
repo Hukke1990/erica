@@ -54,6 +54,16 @@
             "diagnostico": "Estres",
             "comentarios": "Dolor de cabeza, mareos, dolores musculares",
             "fecha": "03/08/2024"
+        },
+        {
+            "idDiagnostico": "DIAG1681",
+            "idPacientes": "PAC4196",
+            "nombre": "monica",
+            "apellido": "lezcano",
+            "cedula": "24294107",
+            "diagnostico": "Faringitis",
+            "comentarios": "se le receto tratamiento por 7 dias con remedios",
+            "fecha": "04/08/2024"
         }
     ]
 }
